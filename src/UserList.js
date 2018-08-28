@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class UserList extends Component {
     state = {};
     render() {
+        const {users} = this.props;
         return(
             <div>
                 <h1>Users</h1>

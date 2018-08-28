@@ -5,6 +5,7 @@ const User = props => {
     return (
         <li className="user">
             <p>Username: {props.user.username}</p>
+            <p>Number of Games Played: </p>
         </li>
     );
 }
