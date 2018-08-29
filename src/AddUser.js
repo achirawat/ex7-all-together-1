@@ -34,7 +34,7 @@ class AddUser extends Component {
 
     handleInput = event => {
         const {name, value} = event.target;
-        this.setState(currentState => ({...currentState, users: {...currentState.user, [name]: value,}}));
+        this.setState(currentState => ({...currentState, user: {...currentState.user, [name]: value,}}));
     };
 
     disable = () => {
@@ -49,9 +49,9 @@ class AddUser extends Component {
                 <h1>New User</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <input type="text" name="firstname" placeholder="Enter First Name" value={firstname} />
-                        <input type="text" name="lastname" placeholder="Enter Last Name" value={lastname} />
-                        <input type="text" name="username" placeholder="Enter User Name" value={username} />
+                        <input type="text" name="firstname" placeholder="Enter First Name" value={firstname} onChange={this.handleInput} />
+                        <input type="text" name="lastname" placeholder="Enter Last Name" value={lastname} onChange={this.handleInput} />
+                        <input type="text" name="username" placeholder="Enter User Name" value={username} onChange={this.handleInput} />
                         <button disabled={this.disable()}>Add</button>
                     </div>
                 </form>

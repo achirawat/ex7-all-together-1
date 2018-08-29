@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import AddUser from './AddUser';
+import UserList from './UserList';
 
 class App extends Component {
   state = {
     users: [],
   };
-  
+
+  createContact = user => {
+    user.numGamesPlayed = 0;
+    this.setState(currentState => ({
+      users: [...currentState.users, user],
+    }));
+  }
+
   render() {
     return (
       <div className="App">
@@ -14,6 +23,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
+        <AddUser users={this.state.users} onAddUser={this.createContact} />
+        <UserList users={this.state.users} />
       </div>
     );
   }
